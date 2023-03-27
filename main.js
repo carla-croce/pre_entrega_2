@@ -1,10 +1,8 @@
-let planElegido = "1) Plan de entrenamiento, 2) Plan alimenticio";
-let duracion1 = "1) 2 semanas";
-let duracion2 = "2) 1 mes";
-let duracion3 = "3) 2 meses";
-let precio1 = "2.000";
-let precio2 = "3.500";
-let precio3 = "5.500";
+let nombre;
+let eleccion;
+let duracion;
+let precio;
+let total = 0;
 
 // OBJETO
 const opciones = [];
@@ -18,146 +16,92 @@ class Persona{
 };
 
 
-let nombre = prompt("Ingrese su nombre");
+nombre = prompt("Ingrese su nombre");
 
-planElegido = parseInt(prompt(`Elija una de nuestras opciones: ${planElegido}`));
+eleccion = parseInt(prompt("Elija una de nuestras opciones (cualquier otra tecla para salir): '\n1. Planes de entrenamiento', '\n2. Planes alimenticios'"));
 
- while(planElegido != "ESC"){
+ while(eleccion === 1 || eleccion === 2){
 
-         if(planElegido === 1){
-            
-             duracion = parseInt(prompt(`Ha seleccionado la opción 'Planes de Entrenamiento'. Elija la duración:${duracion1}, ${duracion2} o ${duracion3}`));
-        
-             switch(duracion){
-                 case 1:
-                     alert(`Ha seleccionado "${duracion1}". Precio: ${precio1}`);
-                     break;
-    
-                 case 2:
-                    alert(`Ha seleccionado "${duracion2}". Precio: ${precio2}`);
-                     break;
-    
-                 case 3:
-                    alert(`Ha seleccionado "${duracion3}". Precio: ${precio3}`);
-                     break
-    
-                 default:
-                     alert("Lo sentimos, la opción ingresada es incorrecta");
-                     break;
-    
-             }
-         let pregunta = prompt("¿Desea agregar la opción planes alimenticios? Responda 'si' o 'no'");
+         if(eleccion === 1){
+            alert("Ha seleccionado la opción 'Planes de entrenamiento'");
+         }else{
+            alert("Ha seleccionado la opción 'Planes alimenticios'");
+         }
+    duracion = parseInt(prompt("Elija la duración: \n1. 2 semanas, \n2. un mes, \n3. dos meses"));
 
-             if(pregunta === "si"){
-            
-                let respuesta = parseInt(prompt(`Ha agregado la opción "Planes alimenticios". Elija la duración: ${duracion1}, ${duracion2} o ${duracion3}`));
+         if(duracion === 1 || duracion === 2 || duracion ===3){
 
-                 switch(respuesta){
-                     case 1:
-                         alert(`Ha seleccionado "${duracion1}". Precio: ${precio1}`);
-                         break;
-                     case 2:
-                        alert(`Ha seleccionado "${duracion2}". Precio: ${precio2}`);
-                         break;
-                     case 3:
-                        alert(`Ha seleccionado "${duracion3}". Precio: ${precio3}`);
-                         break;
+            switch(duracion){
+                case 1:
+                    alert("Adquirir el plan por 2 semanas. Precio $2000");
+                    precio = 2000;
+                    break;
                 
-                     default:
-                         alert("Lo sentimos, la opción ingresada es incorrecta");
-                         break;
-                    
-                 }
-                   
-             }
+                case 2:
+                    alert("Adquirir el plan por un mes. Precio $3500");
+                    precio = 3500;
+                    break;
+                
+                case 3:
+                    alert("Adquirir el plan por dos meses. Precio 5500");
+                    precio = 5500;
+                    break;
+            } 
+            
+            const personaNueva = new Persona(nombre, eleccion, duracion, precio);
 
-             if(pregunta === "no"){
-                 alert("Muchas gracias.");
-                 break; 
-             }
-
-            const personaNueva = new Persona(nombrePedido, planPedido, duracionElegida, precioTotal);
             opciones.push(personaNueva);
 
-             planElegido = parseInt(prompt(`Elija una de nuestras opciones: ${planElegido}`));
-    
-         }else if(planElegido === 2){
-    
-            duracion = parseInt(prompt(`Ha seleccionado la opción 'Planes Alimenticios'. Elija la duración:${duracion1}, ${duracion2} o ${duracion3}`));
-    
-             switch(duracion){
-                 case 1:
-                    alert(`Ha seleccionado "${duracion1}". Precio: ${precio1}`);
-                     break;
-                 case 2:
-                    alert(`Ha seleccionado "${duracion2}". Precio: ${precio2}`);
-                     break;
-                 case 3:
-                    alert(`Ha seleccionado "${duracion3}". Precio: ${precio3}`);
-                     break;
-            
-                 default:
-                     alert("Lo sentimos, la opción ingresada es incorrecta");
-                     break;
-                     }
-          
-         let pregunta = prompt("¿Desea agregar la opción planes de entrenamiento? Responda 'si' o 'no'");
-
-             if(pregunta === "si"){
-
-                let respuesta = parseInt(prompt(`Ha agregado la opción "Planes de Entrenamiento". Elija la duración: ${duracion1}, ${duracion2} o ${duracion3}`));
-
-                switch(respuesta){
-                    case 1:
-                        alert(`Ha seleccionado "${duracion1}". Precio: ${precio1}`);
-                        break;
-                    case 2:
-                       alert(`Ha seleccionado "${duracion2}". Precio: ${precio2}`);
-                        break;
-                    case 3:
-                       alert(`Ha seleccionado "${duracion3}". Precio: ${precio3}`);
-                        break;
-               
-                    default:
-                        alert("Lo sentimos, la opción ingresada es incorrecta");
-                        break;
-                   
-                }
-                  
-            }
-            
-             if(pregunta === "no"){
-                 alert("Muchas gracias.");
-                 break; 
-             }
-
-            const personaNueva = new Persona(nombrePedido, planPedido, duracionElegida, precioTotal);
-            opciones.push(personaNueva);
+         }else{
+            alert("Duración incorrecta.");
+         }
+        
+         eleccion = parseInt(prompt("Si lo desea, elija otras opciones (cualquier otra tecla para salir): '\n1. Planes de entrenamiento', '\n2. Planes alimenticios'"));
 
         
-         planElegido = parseInt(prompt(`Elija una de nuestras opciones: ${planElegido}`));
-
-         planElegido = parseInt(prompt(`Elija una de nuestras opciones: ${planElegido}`));
-     }
-    
+         if(eleccion === 1){
+            alert("Ha seleccionado la opción 'Planes de entrenamiento'");
+         }else{
+            alert("Ha seleccionado la opción 'Planes alimenticios'");
+         }
      
- }   
+    
+    duracion = parseInt(prompt("Elija la duración: \n1. 2 semanas, \n2. un mes, \n3. dos meses"));
+
+         if(duracion === 1 || duracion === 2 || duracion ===3){
+
+            switch(duracion){
+                case 1:
+                    alert("Adquirir el plan por 2 semanas. Precio $2000");
+                    precio = 2000;
+                    break;
+                
+                case 2:
+                    alert("Adquirir el plan por un mes. Precio $3500");
+                    precio = 3500;
+                    break;
+                
+                case 3:
+                    alert("Adquirir el plan por dos meses. Precio 5500");
+                    precio = 5500;
+                    break;
+            } 
+
+            const personaNueva = new Persona(nombre, eleccion, duracion, precio);
+
+            opciones.push(personaNueva);
+
+         }else{
+            alert("Duración incorrecta.");
+         }   
+     
+ }  
 
 
 
+// SUMA DE PRECIOS PARA EL TOTAL
 
-let persona = {
-    nombre: nombre,
-    plan,
-    duracion,
-    precio,
-};
-
-opciones.push(Persona);
-console.log(opciones);
-
-let total = 0;
-for (let i = 0; i< opciones.length; i++){
+for (let i = 0; i < opciones.length; i++){
     total += opciones[i].precio;
 }
 console.log(total);
