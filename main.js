@@ -4,7 +4,7 @@ let duracion;
 let precio;
 let total = 0;
 
-// OBJETO
+// CLASE
 const opciones = [];
 class Persona{
     constructor(nombre, plan, duracion, precio){
@@ -14,6 +14,16 @@ class Persona{
         this.precio = precio;  
     }
 };
+
+// OBJETOS
+const persona1 = new Persona("Carla", 1, 3, 5500);
+const persona2 = new Persona("Ezequiel", 2, 2, 3500);
+console.log(persona1);
+console.log(persona2);
+persona1.valor();
+persona2.valor();
+
+
 
 
 nombre = prompt("Ingrese su nombre");
@@ -94,10 +104,16 @@ eleccion = parseInt(prompt("Elija una de nuestras opciones (cualquier otra tecla
          }else{
             alert("Duración incorrecta.");
          }   
-     
+         eleccion = parseInt(prompt("Elija una de nuestras opciones (cualquier otra tecla para salir): '\n1. Planes de entrenamiento', '\n2. Planes alimenticios'"));
+
  }  
 
-
+ let Persona = {
+    nombre: Persona.length + 1,
+    plan,
+    duracion,
+    precio,
+};
 
 // SUMA DE PRECIOS PARA EL TOTAL
 
