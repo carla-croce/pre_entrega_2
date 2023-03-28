@@ -20,8 +20,7 @@ const persona1 = new Persona("Carla", 1, 3, 5500);
 const persona2 = new Persona("Ezequiel", 2, 2, 3500);
 console.log(persona1);
 console.log(persona2);
-persona1.valor();
-persona2.valor();
+
 
 
 
@@ -108,7 +107,7 @@ eleccion = parseInt(prompt("Elija una de nuestras opciones (cualquier otra tecla
 
  }  
 
- let Persona = {
+ let usuario = {
     nombre: Persona.length + 1,
     plan,
     duracion,
